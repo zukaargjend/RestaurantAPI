@@ -17,15 +17,9 @@ public interface RestaurantMapper {
     @Mapping(source = "dishes", target = "dishDtos")
     RestaurantDto toDto(Restaurant restaurant);
 
-    List<Restaurant> toEntityList(List<RestaurantDto> restaurantDtos);
-
-    List<RestaurantDto> toDtoList(List<Restaurant> restaurants);
-
     Restaurant toEntity(RestaurantResponseNameDto restaurantResponseNameDto);
 
     RestaurantResponseNameDto restaurantToDto(Restaurant restaurant);
-
-    List<Restaurant> restaurantsToListEntity(List<RestaurantResponseNameDto> restaurantResponseNameDtos);
 
     List<RestaurantResponseNameDto> restaurantsToDo(List<Restaurant> restaurants);
 

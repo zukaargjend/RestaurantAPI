@@ -33,13 +33,18 @@ public class RestaurantController {
         return restaurantService.getAllRestaurants(name);
     }
 
-    @GetMapping("find-by-id/{id}")
+    @GetMapping("/find-by-id/{id}")
     public RestaurantDto getById(@PathVariable Long id){
         return restaurantService.getRestaurantById(id);
     }
 
-    @PutMapping("update-by-id/{id}")
+    @PutMapping("/update-by-id/{id}")
     public RestaurantDto updateRestaurant(@PathVariable Long id, @RequestBody RestaurantUpdateRequest restaurantUpdateRequest) {
         return restaurantService.update(id, restaurantUpdateRequest);
+    }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public void deleteRestaurant(@PathVariable Long id){
+        restaurantService.delete(id);
     }
 }

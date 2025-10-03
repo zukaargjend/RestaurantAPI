@@ -64,6 +64,13 @@ public class RestaurantService {
         return restaurantMapper.toDto(updatedRestaurant);
     }
 
+    public void delete(final Long id) throws EntityNotFoundException {
+        final Restaurant restaurantInDB = this.restaurantRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Restaurant not found!"));
+
+        restaurantRepository.delete(restaurantInDB);
+    }
+
     private boolean existsRestaurant(Restaurant restaurant){
         return restaurantRepository.existsByNameIgnoreCase(restaurant.getName());
     }
